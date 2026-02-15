@@ -292,63 +292,10 @@ Edit Checklist is at the end for easy updating.
     <section id="projects">
       <div class="container">
         <h2 class="mb-4"><i class="bi bi-kanban-fill"></i> Projects</h2>
-        <div class="row g-4">
-          <!-- Project 1 -->
-          <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Satellite Link Optimizer</h5>
-                <p class="card-text">Designed a tool to optimize satellite communication links for greater reliability.</p>
-                <ul>
-                  <li>Tool: Python, custom datasets</li>
-                  <li>Method: Signal simulation & link budget analysis</li>
-                  <li>Outcome: Reduced signal loss and improved uptime</li>
-                </ul>
-                <div class="mt-auto d-flex gap-2">
-                  <span class="badge rounded-pill bg-secondary">No Demo</span>
-                  <span class="badge rounded-pill bg-secondary">No Code</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Project 2 -->
-          <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Green Power Cube</h5>
-                <p class="card-text">Created a compact energy unit for powering field instruments in remote locations.</p>
-                <ul>
-                  <li>Tool: SolidWorks, off-grid sensors</li>
-                  <li>Method: Solar + battery integration</li>
-                  <li>Outcome: Reliable field energy for >72h</li>
-                </ul>
-                <div class="mt-auto d-flex gap-2">
-                  <span class="badge rounded-pill bg-secondary">No Demo</span>
-                  <span class="badge rounded-pill bg-secondary">No Code</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Project 3 -->
-          <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">AIS Data Visualizer</h5>
-                <p class="card-text">Built a web app to visualize vessel tracking data using AIS signals.</p>
-                <ul>
-                  <li>Tool: JavaScript, AIS data</li>
-                  <li>Method: Real-time map rendering</li>
-                  <li>Outcome: Clear, live ship traffic displays</li>
-                </ul>
-                <div class="mt-auto d-flex gap-2">
-                  <span class="badge rounded-pill bg-secondary">No Demo</span>
-                  <span class="badge rounded-pill bg-secondary">No Code</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="row g-4" id="projectsContainer">
+          <!-- Projects will be dynamically rendered here -->
         </div>
-        <div class="form-text mt-3">Buttons appear if demo/code links are given. Contact me to learn more about these projects.</div>
+        <div class="form-text mt-3">Add demo/code URLs to the projects array in the script to display buttons. Contact me to learn more about these projects.</div>
       </div>
     </section>
 
@@ -523,6 +470,123 @@ Edit Checklist is at the end for easy updating.
         }, 10);
       }
     });
+
+    // --- Dynamic Projects Rendering ---
+    (function() {
+      var projects = [
+        {
+          title: "Satellite Link Optimizer",
+          description: "Designed a tool to optimize satellite communication links for greater reliability.",
+          details: [
+            "Tool: Python, custom datasets",
+            "Method: Signal simulation & link budget analysis",
+            "Outcome: Reduced signal loss and improved uptime"
+          ],
+          demoUrl: "", // Add URL here to show demo button
+          codeUrl: ""  // Add URL here to show code button
+        },
+        {
+          title: "Green Power Cube",
+          description: "Created a compact energy unit for powering field instruments in remote locations.",
+          details: [
+            "Tool: SolidWorks, off-grid sensors",
+            "Method: Solar + battery integration",
+            "Outcome: Reliable field energy for >72h"
+          ],
+          demoUrl: "",
+          codeUrl: ""
+        },
+        {
+          title: "AIS Data Visualizer",
+          description: "Built a web app to visualize vessel tracking data using AIS signals.",
+          details: [
+            "Tool: JavaScript, AIS data",
+            "Method: Real-time map rendering",
+            "Outcome: Clear, live ship traffic displays"
+          ],
+          demoUrl: "",
+          codeUrl: ""
+        }
+      ];
+
+      var container = document.getElementById('projectsContainer');
+      
+      projects.forEach(function(project) {
+        // Create column
+        var col = document.createElement('div');
+        col.className = 'col-md-4';
+        
+        // Create card
+        var card = document.createElement('div');
+        card.className = 'card h-100 shadow-sm';
+        
+        // Create card body
+        var cardBody = document.createElement('div');
+        cardBody.className = 'card-body d-flex flex-column';
+        
+        // Title
+        var title = document.createElement('h5');
+        title.className = 'card-title';
+        title.textContent = project.title;
+        cardBody.appendChild(title);
+        
+        // Description
+        var desc = document.createElement('p');
+        desc.className = 'card-text';
+        desc.textContent = project.description;
+        cardBody.appendChild(desc);
+        
+        // Details list
+        var ul = document.createElement('ul');
+        project.details.forEach(function(detail) {
+          var li = document.createElement('li');
+          li.textContent = detail;
+          ul.appendChild(li);
+        });
+        cardBody.appendChild(ul);
+        
+        // Buttons/badges container
+        var btnContainer = document.createElement('div');
+        btnContainer.className = 'mt-auto d-flex gap-2 flex-wrap';
+        
+        // Demo button or badge
+        if (project.demoUrl) {
+          var demoBtn = document.createElement('a');
+          demoBtn.href = project.demoUrl;
+          demoBtn.className = 'btn btn-sm btn-primary';
+          demoBtn.target = '_blank';
+          demoBtn.rel = 'noopener';
+          demoBtn.innerHTML = '<i class="bi bi-play-circle"></i> Demo';
+          btnContainer.appendChild(demoBtn);
+        } else {
+          var demoBadge = document.createElement('span');
+          demoBadge.className = 'badge rounded-pill bg-secondary';
+          demoBadge.textContent = 'No Demo';
+          btnContainer.appendChild(demoBadge);
+        }
+        
+        // Code button or badge
+        if (project.codeUrl) {
+          var codeBtn = document.createElement('a');
+          codeBtn.href = project.codeUrl;
+          codeBtn.className = 'btn btn-sm btn-outline-secondary';
+          codeBtn.target = '_blank';
+          codeBtn.rel = 'noopener';
+          codeBtn.innerHTML = '<i class="bi bi-github"></i> Code';
+          btnContainer.appendChild(codeBtn);
+        } else {
+          var codeBadge = document.createElement('span');
+          codeBadge.className = 'badge rounded-pill bg-secondary';
+          codeBadge.textContent = 'No Code';
+          btnContainer.appendChild(codeBadge);
+        }
+        
+        cardBody.appendChild(btnContainer);
+        card.appendChild(cardBody);
+        col.appendChild(card);
+        container.appendChild(col);
+      });
+    })();
 
   </script>
 </body>
