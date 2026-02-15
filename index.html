@@ -547,7 +547,7 @@ Edit Checklist is at the end for easy updating.
         
         // Buttons/badges container
         var btnContainer = document.createElement('div');
-        btnContainer.className = 'mt-auto d-flex gap-2 flex-wrap';
+        btnContainer.className = 'mt-auto d-flex gap-2';
         
         // Demo button or badge
         if (project.demoUrl) {
@@ -555,7 +555,7 @@ Edit Checklist is at the end for easy updating.
           demoBtn.href = project.demoUrl;
           demoBtn.className = 'btn btn-sm btn-primary';
           demoBtn.target = '_blank';
-          demoBtn.rel = 'noopener';
+          demoBtn.rel = 'noopener noreferrer';
           demoBtn.innerHTML = '<i class="bi bi-play-circle"></i> Demo';
           btnContainer.appendChild(demoBtn);
         } else {
@@ -571,7 +571,7 @@ Edit Checklist is at the end for easy updating.
           codeBtn.href = project.codeUrl;
           codeBtn.className = 'btn btn-sm btn-outline-secondary';
           codeBtn.target = '_blank';
-          codeBtn.rel = 'noopener';
+          codeBtn.rel = 'noopener noreferrer';
           codeBtn.innerHTML = '<i class="bi bi-github"></i> Code';
           btnContainer.appendChild(codeBtn);
         } else {
