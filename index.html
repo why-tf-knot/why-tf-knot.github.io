@@ -426,6 +426,12 @@ Edit Checklist is at the end for easy updating.
       color: var(--isu-gold);
       opacity: 0.3;
     }
+    .fleet-card .badge.first-ship-badge {
+      background-color: var(--isu-gold) !important;
+      color: var(--isu-ink) !important;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+    }
     @media (max-width: 768px) {
       .fleet-grid {
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -823,7 +829,7 @@ Edit Checklist is at the end for easy updating.
             </div>
             <h5 class="fleet-name">MV Federal Spey</h5>
             <div class="fleet-type">Bulk Carrier (Handymax)</div>
-            <div class="fleet-year">2015 <span class="badge bg-warning text-dark">First Ship</span></div>
+            <div class="fleet-year">2015 <span class="badge first-ship-badge">First Ship</span></div>
             <div class="fleet-stat">52,000 DWT</div>
             <p class="fleet-description">Great Lakes grain trades - first sea assignment</p>
           </div>
