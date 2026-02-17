@@ -293,6 +293,145 @@ Edit Checklist is at the end for easy updating.
       padding-left: 1.2rem;
       margin-bottom: 1.5rem;
     }
+    /* Fleet Experience Cards */
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .fleet-card {
+      background: linear-gradient(135deg, var(--isu-ink) 0%, #1a2942 100%);
+      border: 2px solid var(--isu-blue);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    [data-bs-theme="light"] .fleet-card {
+      background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+      border: 2px solid var(--isu-blue);
+    }
+    .fleet-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--isu-blue), var(--isu-gold));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .fleet-card:hover::before {
+      transform: scaleX(1);
+    }
+    .fleet-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(11, 61, 145, 0.3);
+      border-color: var(--isu-gold);
+    }
+    .fleet-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--isu-gold);
+      transition: transform 0.3s ease;
+    }
+    .fleet-card:hover .fleet-icon {
+      transform: scale(1.15) rotate(5deg);
+    }
+    .fleet-name {
+      color: var(--isu-gold);
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+    }
+    .fleet-type {
+      color: var(--isu-sky);
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+    [data-bs-theme="light"] .fleet-type {
+      color: var(--isu-ink);
+    }
+    .fleet-year {
+      color: #a0b3d4;
+      font-size: 0.85rem;
+      margin-bottom: 0.6rem;
+    }
+    [data-bs-theme="light"] .fleet-year {
+      color: #666;
+    }
+    .fleet-stat {
+      background: rgba(11, 61, 145, 0.3);
+      color: var(--isu-gold);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+      border: 1px solid var(--isu-blue);
+    }
+    [data-bs-theme="light"] .fleet-stat {
+      background: rgba(11, 61, 145, 0.1);
+      color: var(--isu-blue);
+    }
+    .fleet-description {
+      color: #c8d6e5;
+      font-size: 0.85rem;
+      margin: 0;
+      line-height: 1.4;
+    }
+    [data-bs-theme="light"] .fleet-description {
+      color: #555;
+    }
+    /* Color coding by vessel type */
+    .fleet-card.bulk-carrier {
+      border-left: 4px solid #8b4513;
+    }
+    .fleet-card.bulk-carrier .fleet-icon {
+      color: #cd853f;
+    }
+    .fleet-card.tanker {
+      border-left: 4px solid #4169e1;
+    }
+    .fleet-card.tanker .fleet-icon {
+      color: #4169e1;
+    }
+    .fleet-card.container {
+      border-left: 4px solid #32cd32;
+    }
+    .fleet-card.container .fleet-icon {
+      color: #32cd32;
+    }
+    .fleet-card.specialized {
+      border-left: 4px solid #ff6347;
+    }
+    .fleet-card.specialized .fleet-icon {
+      color: #ff6347;
+    }
+    .fleet-card.first-ship {
+      border: 2px solid var(--isu-gold);
+    }
+    .fleet-card.first-ship::after {
+      content: '★';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      color: var(--isu-gold);
+      opacity: 0.3;
+    }
+    @media (max-width: 768px) {
+      .fleet-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -309,6 +448,7 @@ Edit Checklist is at the end for easy updating.
             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
             <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#fleet-experience">Fleet</a></li>
             <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
             <li class="nav-item"><a class="nav-link" href="#cv">CV</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -561,6 +701,136 @@ Edit Checklist is at the end for easy updating.
       </div>
     </section>
 
+    <!-- Fleet Experience Visual Section -->
+    <section id="fleet-experience" class="fade-in-section">
+      <div class="container">
+        <h2 class="mb-4 text-center"><i class="bi bi-water"></i> Fleet Experience</h2>
+        <p class="text-center text-muted mb-4">7 vessels operated across bulk carriers, tankers, containers, and specialized ships</p>
+        
+        <div class="fleet-grid">
+          <!-- Federal Katsura - Bulk Carrier -->
+          <div class="fleet-card bulk-carrier">
+            <div class="fleet-icon">
+              <i class="bi bi-box-seam"></i>
+            </div>
+            <h5 class="fleet-name">Federal Katsura</h5>
+            <div class="fleet-type">Bulk Carrier (Handymax)</div>
+            <div class="fleet-year">2024</div>
+            <div class="fleet-stat">52,000 DWT</div>
+            <p class="fleet-description">Trans-Pacific grain, ore & coal operations</p>
+          </div>
+
+          <!-- Bulk Mexico - Bulk Carrier -->
+          <div class="fleet-card bulk-carrier">
+            <div class="fleet-icon">
+              <i class="bi bi-box-seam"></i>
+            </div>
+            <h5 class="fleet-name">Bulk Mexico</h5>
+            <div class="fleet-type">Bulk Carrier (Handysize)</div>
+            <div class="fleet-year">2023</div>
+            <div class="fleet-stat">35,000 DWT</div>
+            <p class="fleet-description">Multi-port logistics across diverse routes</p>
+          </div>
+
+          <!-- Federal Tweed - Bulk Carrier -->
+          <div class="fleet-card bulk-carrier">
+            <div class="fleet-icon">
+              <i class="bi bi-box-seam"></i>
+            </div>
+            <h5 class="fleet-name">Federal Tweed</h5>
+            <div class="fleet-type">Bulk Carrier (Handymax)</div>
+            <div class="fleet-year">2021</div>
+            <div class="fleet-stat">52,000 DWT</div>
+            <p class="fleet-description">Ice navigation & St. Lawrence Seaway ops</p>
+          </div>
+
+          <!-- Nordic Explorer - Chemical/Product Tanker -->
+          <div class="fleet-card tanker">
+            <div class="fleet-icon">
+              <i class="bi bi-droplet-fill"></i>
+            </div>
+            <h5 class="fleet-name">Nordic Explorer</h5>
+            <div class="fleet-type">Chemical/Product Tanker</div>
+            <div class="fleet-year">2022</div>
+            <div class="fleet-stat">25,000 DWT</div>
+            <p class="fleet-description">Petroleum products & chemicals in ARA range</p>
+          </div>
+
+          <!-- MV SYMI I - Container -->
+          <div class="fleet-card container">
+            <div class="fleet-icon">
+              <i class="bi bi-stack"></i>
+            </div>
+            <h5 class="fleet-name">MV SYMI I</h5>
+            <div class="fleet-type">Container Vessel</div>
+            <div class="fleet-year">2017</div>
+            <div class="fleet-stat">1,400 TEU</div>
+            <p class="fleet-description">Mediterranean reefer & cold chain logistics</p>
+          </div>
+
+          <!-- Pacific Voyager - Container -->
+          <div class="fleet-card container">
+            <div class="fleet-icon">
+              <i class="bi bi-stack"></i>
+            </div>
+            <h5 class="fleet-name">Pacific Voyager</h5>
+            <div class="fleet-type">Container Vessel</div>
+            <div class="fleet-year">2019</div>
+            <div class="fleet-stat">2,500 TEU</div>
+            <p class="fleet-description">Trans-Pacific Asia-US West Coast service</p>
+          </div>
+
+          <!-- Mountpark - Log Carrier -->
+          <div class="fleet-card specialized">
+            <div class="fleet-icon">
+              <i class="bi bi-tree-fill"></i>
+            </div>
+            <h5 class="fleet-name">Mountpark</h5>
+            <div class="fleet-type">Log Carrier</div>
+            <div class="fleet-year">2020</div>
+            <div class="fleet-stat">18,000 DWT</div>
+            <p class="fleet-description">Pacific timber routes with heavy weather ops</p>
+          </div>
+
+          <!-- Atlantic Venture - Heavy Lift -->
+          <div class="fleet-card specialized">
+            <div class="fleet-icon">
+              <i class="bi bi-gear-wide-connected"></i>
+            </div>
+            <h5 class="fleet-name">Atlantic Venture</h5>
+            <div class="fleet-type">Multi-Purpose Heavy Lift</div>
+            <div class="fleet-year">2018</div>
+            <div class="fleet-stat">12,000 DWT</div>
+            <p class="fleet-description">Project cargo & wind turbine components</p>
+          </div>
+
+          <!-- Saga Enterprise - General Cargo -->
+          <div class="fleet-card specialized">
+            <div class="fleet-icon">
+              <i class="bi bi-boxes"></i>
+            </div>
+            <h5 class="fleet-name">Saga Enterprise</h5>
+            <div class="fleet-type">General Cargo Vessel</div>
+            <div class="fleet-year">2016</div>
+            <div class="fleet-stat">8,500 DWT</div>
+            <p class="fleet-description">North Sea-Baltic coastal tramping</p>
+          </div>
+
+          <!-- MV Federal Spey - First Assignment -->
+          <div class="fleet-card bulk-carrier first-ship">
+            <div class="fleet-icon">
+              <i class="bi bi-box-seam"></i>
+            </div>
+            <h5 class="fleet-name">MV Federal Spey</h5>
+            <div class="fleet-type">Bulk Carrier (Handymax)</div>
+            <div class="fleet-year">2015 <span class="badge bg-warning text-dark">First Ship</span></div>
+            <div class="fleet-stat">52,000 DWT</div>
+            <p class="fleet-description">Great Lakes grain trades - first sea assignment</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="experience" class="fade-in-section">
       <div class="container">
         <h2 class="mb-4"><i class="bi bi-briefcase-fill"></i> Experience</h2>
@@ -605,6 +875,14 @@ Edit Checklist is at the end for easy updating.
                   <strong>Learning:</strong> Coordinated AIS tracking, passage planning for ice navigation, multi-port dry bulk operations, ECDIS route optimization, emergency response procedures
                 </small>
               </li>
+              <li>
+                <strong>Nordic Explorer</strong> (2022) - Chemical/Product tanker (25,000 DWT)<br>
+                <small class="text-muted">
+                  <strong>Routes:</strong> North Europe-Mediterranean, Baltic-UK, Amsterdam-Rotterdam-Antwerp (ARA) range<br>
+                  <strong>Cargo:</strong> Refined petroleum products (diesel, gasoline), vegetable oils, chemicals (methanol, ethanol) | Revenue: $2.9M per voyage<br>
+                  <strong>Learning:</strong> Oversaw tank cleaning operations, cargo segregation and compatibility, inert gas systems, pollution prevention (MARPOL compliance), specialized cargo handling procedures, vapor emission control
+                </small>
+              </li>
             </ul>
           </div>
           <div class="timeline-entry">
@@ -635,6 +913,22 @@ Edit Checklist is at the end for easy updating.
                   <strong>Routes:</strong> North Sea-Baltic, UK-Continental Europe, coastal tramping<br>
                   <strong>Cargo:</strong> General Cargo (steel, machinery, project cargo) | Revenue: $3.2M per voyage<br>
                   <strong>Learning:</strong> Monitored navigation systems in confined waters, general cargo handling and securing, ship's gear operations (derricks/cranes), port communications, diverse cargo documentation
+                </small>
+              </li>
+              <li>
+                <strong>Pacific Voyager</strong> (2019) - Container vessel (2500 TEU)<br>
+                <small class="text-muted">
+                  <strong>Routes:</strong> Trans-Pacific (Asia-US West Coast), Shanghai-Los Angeles-Vancouver service<br>
+                  <strong>Cargo:</strong> Containers (electronics, textiles, automotive parts), reefer cargo | Revenue: $6.4M per voyage<br>
+                  <strong>Learning:</strong> Practiced celestial navigation on long ocean passages, container load planning software, hazardous cargo segregation (IMDG Code), bunker management for fuel efficiency, long-range voyage planning
+                </small>
+              </li>
+              <li>
+                <strong>Atlantic Venture</strong> (2018) - Multi-purpose heavy lift vessel<br>
+                <small class="text-muted">
+                  <strong>Routes:</strong> North Atlantic, Caribbean-Europe, West Africa trades<br>
+                  <strong>Cargo:</strong> Project cargo (heavy machinery, wind turbine components, steel structures), break-bulk | Revenue: $4.5M per voyage<br>
+                  <strong>Learning:</strong> Assisted with heavy lift crane operations, project cargo stability calculations, seafastening and securing of oversized cargo, load distribution planning, pre-shipment surveys, specialized port operations
                 </small>
               </li>
               <li>
