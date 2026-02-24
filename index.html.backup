@@ -226,27 +226,15 @@ Edit Checklist is at the end for easy updating.
       color: var(--isu-gold);
     }
     .hero {
-      background: linear-gradient(180deg, #0a2d5f 0%, #0b3d91 30%, #1a5080 60%, #0d3468 100%);
+      background: linear-gradient(180deg, #0a2d5f 0%, #0b3d91 50%, #1a5080 100%);
       color: var(--isu-sky);
       padding: 2rem 0 0 0;
       position: relative;
       overflow: hidden;
-      min-height: 95vh;
+      min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      animation: heroGradient 15s ease-in-out infinite;
-    }
-    @keyframes heroGradient {
-      0%, 100% { 
-        background: linear-gradient(180deg, #0a2d5f 0%, #0b3d91 30%, #1a5080 60%, #0d3468 100%); 
-      }
-      33% { 
-        background: linear-gradient(180deg, #0b3d91 0%, #1a5080 30%, #0d3468 60%, #0a2d5f 100%); 
-      }
-      66% { 
-        background: linear-gradient(180deg, #1a5080 0%, #0d3468 30%, #0a2d5f 60%, #0b3d91 100%); 
-      }
     }
     /* Ocean waves */
     .hero::before {
@@ -294,15 +282,15 @@ Edit Checklist is at the end for easy updating.
       position: absolute;
       bottom: 12%;
       left: 50%;
-      transform: translateX(-50%) scale(1.5);
+      transform: translateX(-50%);
       width: 120px;
       height: 180px;
       z-index: 10;
       animation: shipBob 4s ease-in-out infinite;
     }
     @keyframes shipBob {
-      0%, 100% { transform: translateX(-50%) translateY(0) scale(1.5); }
-      50% { transform: translateX(-50%) translateY(-8px) scale(1.5); }
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-8px); }
     }
     .ship-hull {
       position: absolute;
@@ -436,20 +424,15 @@ Edit Checklist is at the end for easy updating.
       opacity: 1;
     }
     .hero h1 {
-      font-size: 5rem;
+      font-size: 3.5rem;
       font-weight: 800;
       margin-bottom: 0.5rem;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-      animation: fadeInDown 1s ease-out, gradientShift 8s ease-in-out infinite;
-      background: linear-gradient(135deg, #fff 0%, #f0b429 50%, #fff 100%);
-      background-size: 200% 200%;
+      animation: fadeInDown 1s ease-out;
+      background: linear-gradient(135deg, #fff 0%, #f0b429 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-    }
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
     }
     @keyframes fadeInDown {
       from {
@@ -502,20 +485,19 @@ Edit Checklist is at the end for easy updating.
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .hero {
-        min-height: 85vh;
+        min-height: 80vh;
         padding: 1rem 0 0 0;
       }
       .hero h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
       .hero .lead {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
       }
       .hero-ship {
-        width: 100px;
-        height: 150px;
+        width: 80px;
+        height: 120px;
         bottom: 15%;
-        transform: translateX(-50%) scale(1.2) !important;
       }
       .ship-hull {
         width: 60px;
@@ -543,33 +525,19 @@ Edit Checklist is at the end for easy updating.
       }
       .social-links {
         justify-content: center;
-        margin-top: 1.5rem;
-      }
-      .social-link {
-        width: 48px;
-        height: 48px;
-        font-size: 1.25rem;
-      }
-      .hero-cta .btn {
-        padding: 0.85rem 1.75rem;
-        font-size: 1rem;
+        margin-top: 1rem;
       }
     }
     @media (max-width: 480px) {
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
       .hero .lead {
         font-size: 1rem;
       }
       .hero-ship {
-        width: 70px;
-        height: 105px;
-        transform: translateX(-50%) scale(1) !important;
-      }
-      .hero-cta .btn {
-        width: 100%;
-        margin-bottom: 0.75rem;
+        width: 60px;
+        height: 90px;
       }
     }
     section {
@@ -605,41 +573,18 @@ Edit Checklist is at the end for easy updating.
     /* Modern project cards */
     .project-card {
       position: relative;
-      padding: 0;
+      padding: var(--space-md);
       background: linear-gradient(135deg, rgba(11, 61, 145, 0.05) 0%, rgba(30, 95, 168, 0.05) 100%);
       border-radius: var(--radius-xl);
       border: 1px solid rgba(11, 61, 145, 0.2);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       height: 100%;
-      overflow: hidden;
-    }
-    
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 200px;
-      background: linear-gradient(135deg, rgba(11, 61, 145, 0.15) 0%, rgba(30, 95, 168, 0.25) 100%);
-      z-index: 0;
-      transition: all 0.4s ease;
-    }
-    
-    .project-card:hover::before {
-      background: linear-gradient(135deg, rgba(240, 180, 41, 0.2) 0%, rgba(255, 207, 71, 0.3) 100%);
     }
     
     .project-card:hover {
-      transform: translateY(-10px) scale(1.02);
+      transform: translateY(-8px) scale(1.02);
       box-shadow: 0 20px 40px rgba(11, 61, 145, 0.3);
       border-color: var(--isu-gold);
-    }
-    
-    .project-card-body {
-      position: relative;
-      z-index: 1;
-      padding: var(--space-md);
     }
     
     .project-card h5 {
@@ -647,7 +592,6 @@ Edit Checklist is at the end for easy updating.
       font-weight: 700;
       font-size: var(--text-lg);
       margin-bottom: var(--space-sm);
-      margin-top: 180px;
     }
     
     .project-card p {
@@ -660,57 +604,6 @@ Edit Checklist is at the end for easy updating.
     .project-card ul {
       font-size: var(--text-xs);
       margin-bottom: var(--space-md);
-      list-style: none;
-      padding: 0;
-    }
-    
-    .project-card ul li {
-      padding-left: 1.5rem;
-      position: relative;
-      margin-bottom: 0.5rem;
-    }
-    
-    .project-card ul li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--isu-gold);
-      font-weight: bold;
-    }
-    
-    .project-tech-badge {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      margin: 0.25rem;
-      background: rgba(240, 180, 41, 0.15);
-      border: 1px solid rgba(240, 180, 41, 0.3);
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--isu-gold);
-    }
-    
-    .project-card .btn-group {
-      margin-top: auto;
-    }
-    
-    .project-featured {
-      border: 2px solid var(--isu-gold);
-      box-shadow: 0 10px 30px rgba(240, 180, 41, 0.2);
-    }
-    
-    .project-featured::after {
-      content: '⭐ Featured';
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--isu-gold);
-      color: var(--isu-ink);
-      padding: 0.25rem 0.75rem;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      z-index: 2;
     }
     
     /* Modern experience cards */
@@ -741,104 +634,28 @@ Edit Checklist is at the end for easy updating.
       margin-bottom: var(--space-sm);
     }
     .timeline {
-      border-left: 4px solid var(--isu-blue);
-      margin-left: 2rem;
+      border-left: 3px solid var(--isu-blue);
+      margin-left: 1rem;
       position: relative;
-      padding-left: 0;
     }
-    
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -6px;
-      width: 12px;
-      height: 12px;
-      background: var(--isu-gold);
-      border-radius: 50%;
-      box-shadow: 0 0 0 4px var(--bs-body-bg), 0 0 0 6px var(--isu-gold);
-    }
-    
     .timeline-entry {
       position: relative;
-      margin-bottom: 3rem;
-      padding-left: 2.5rem;
-      opacity: 0;
-      transform: translateX(-30px);
-      transition: all 0.6s ease-out;
-      background: linear-gradient(135deg, rgba(11, 61, 145, 0.03) 0%, rgba(30, 95, 168, 0.06) 100%);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 1.5rem 1.5rem 2.5rem;
-      border: 1px solid rgba(11, 61, 145, 0.1);
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
     }
-    
-    .timeline-entry.is-visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    
     .timeline-entry::before {
       content: '';
       position: absolute;
-      left: -2.65rem;
-      top: 1.8rem;
-      width: 1.3rem;
-      height: 1.3rem;
+      left: -1.28rem;
+      top: 0.4rem;
+      width: 1rem;
+      height: 1rem;
       background: var(--isu-gold);
       border-radius: 50%;
-      border: 4px solid var(--bs-body-bg);
-      box-shadow: 0 0 0 2px var(--isu-blue);
-      transition: all 0.3s ease;
-      animation: pulse 2s ease-in-out infinite;
+      border: 2px solid var(--isu-blue);
     }
-    
-    @keyframes pulse {
-      0%, 100% {
-        box-shadow: 0 0 0 2px var(--isu-blue), 0 0 0 4px transparent;
-      }
-      50% {
-        box-shadow: 0 0 0 2px var(--isu-blue), 0 0 0 8px rgba(240, 180, 41, 0.3);
-      }
-    }
-    
-    .timeline-entry:hover {
-      border-color: var(--isu-gold);
-      transform: translateX(5px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .timeline-entry:hover::before {
-      background: var(--isu-blue);
-      transform: scale(1.2);
-    }
-    
     .timeline-entry:last-child {
       margin-bottom: 0;
-    }
-    
-    .timeline-entry h5 {
-      color: var(--isu-gold);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    
-    .timeline-entry ul {
-      margin-top: 1rem;
-      margin-left: 1rem;
-    }
-    
-    .timeline-entry ul li {
-      margin-bottom: 1rem;
-      padding-left: 0.5rem;
-    }
-    
-    .timeline-entry ul li strong {
-      color: var(--isu-blue);
-      font-weight: 700;
-    }
-    
-    [data-bs-theme="dark"] .timeline-entry ul li strong {
-      color: var(--isu-gold);
     }
     .focus-list, .tools-list, .interests-list, .lang-list {
       padding-left: 1.2em;
@@ -1114,91 +931,34 @@ Edit Checklist is at the end for easy updating.
     }
     /* Skills Section */
     .skill-item {
-      margin-bottom: 2rem;
-      position: relative;
+      margin-bottom: 1.5rem;
     }
     .skill-name {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
     }
     .skill-bar {
-      height: 12px;
-      background-color: rgba(11, 61, 145, 0.15);
-      border-radius: 20px;
+      height: 8px;
+      background-color: rgba(11, 61, 145, 0.2);
+      border-radius: 10px;
       overflow: hidden;
       position: relative;
     }
     .skill-progress {
       height: 100%;
       background: linear-gradient(90deg, var(--isu-blue), var(--isu-gold));
-      border-radius: 20px;
-      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    .skill-progress::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.3) 50%, 
-        transparent 100%);
-      animation: shimmer 2s infinite;
-    }
-    
-    /* Software tool cards */
-    .tool-card {
-      background: linear-gradient(135deg, rgba(11, 61, 145, 0.05) 0%, rgba(30, 95, 168, 0.08) 100%);
-      border: 1px solid rgba(11, 61, 145, 0.2);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      text-align: center;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      height: 100%;
-    }
-    
-    .tool-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(11, 61, 145, 0.25);
-      border-color: var(--isu-gold);
-      background: linear-gradient(135deg, rgba(240, 180, 41, 0.08) 0%, rgba(255, 207, 71, 0.08) 100%);
-    }
-    
-    .tool-card i {
-      font-size: 2.5rem;
-      color: var(--isu-gold);
-      margin-bottom: 1rem;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    
-    .tool-card:hover i {
-      transform: scale(1.1);
-    }
-    
-    .tool-card h6 {
-      font-weight: 600;
-      margin-bottom: 0;
-      color: var(--isu-blue);
-    }
-    
-    [data-bs-theme="dark"] .tool-card h6 {
-      color: var(--isu-sky);
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
     }
     /* Social Links */
     .social-links {
       display: flex;
-      gap: 1rem;
+      gap: 0.8rem;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       position: relative;
       z-index: 3;
     }
@@ -1206,42 +966,38 @@ Edit Checklist is at the end for easy updating.
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 56px;
-      height: 56px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.15);
+      background: linear-gradient(135deg, var(--isu-blue) 0%, #1e5ba8 100%);
       color: var(--isu-sky) !important;
       text-decoration: none;
-      font-size: 1.5rem;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
       position: relative;
-      box-shadow: 0 4px 15px rgba(11, 61, 145, 0.4);
+      box-shadow: 0 3px 10px rgba(11, 61, 145, 0.3);
     }
     .social-link::before {
       content: '';
       position: absolute;
-      inset: -2px;
+      inset: 0;
       border-radius: 50%;
       padding: 2px;
-      background: linear-gradient(135deg, var(--isu-gold), #ffcf47, var(--isu-blue));
+      background: linear-gradient(135deg, var(--isu-gold), #ffcf47);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.3s ease;
     }
     .social-link:hover {
-      background: rgba(240, 180, 41, 0.15);
-      border-color: var(--isu-gold);
-      color: var(--isu-gold) !important;
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 8px 25px rgba(240, 180, 41, 0.6);
+      background: linear-gradient(135deg, var(--isu-gold) 0%, #ffcf47 100%);
+      color: var(--isu-ink) !important;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 15px rgba(240, 180, 41, 0.5);
     }
     .social-link:hover::before {
       opacity: 1;
-    }
     }
     /* Hero decorative element */
     .hero-decoration {
@@ -1305,260 +1061,11 @@ Edit Checklist is at the end for easy updating.
       opacity: 1;
       transform: translateY(0);
     }
-    
-    /* Alternating section backgrounds */
-    section:nth-child(even) {
-      background: linear-gradient(180deg, rgba(11, 61, 145, 0.02) 0%, rgba(11, 61, 145, 0.05) 100%);
-      position: relative;
-    }
-    
-    /* Section decorative dividers */
-    .section-divider {
-      height: 2px;
-      width: 100%;
-      background: linear-gradient(90deg, transparent 0%, var(--isu-gold) 50%, transparent 100%);
-      margin: var(--space-xl) 0;
-      position: relative;
-    }
-    
-    .section-divider::before {
-      content: '⚓';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--bs-body-bg);
-      padding: 0 1rem;
-      color: var(--isu-gold);
-      font-size: 1.5rem;
-    }
-    
-    /* Hero CTA buttons */
-    .hero-cta .btn {
-      border-radius: var(--radius-md);
-      font-weight: 600;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      animation: fadeInUp 1s ease-out 0.6s both;
-    }
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .hero-cta .btn-warning {
-      background: linear-gradient(135deg, var(--isu-gold) 0%, #ffcf47 100%);
-      border: none;
-      box-shadow: 0 6px 20px rgba(240, 180, 41, 0.4);
-    }
-    
-    .hero-cta .btn-warning:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(240, 180, 41, 0.6);
-    }
-    
-    .hero-cta .btn-outline-light {
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      color: white;
-    }
-    
-    .hero-cta .btn-outline-light:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: white;
-      transform: translateY(-4px);
-    }
-    
-    /* Pill badges for About section */
-    .pill-badge {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      margin: 0.25rem;
-      background: linear-gradient(135deg, rgba(11, 61, 145, 0.1) 0%, rgba(30, 95, 168, 0.1) 100%);
-      border: 1px solid rgba(11, 61, 145, 0.3);
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .pill-badge:hover {
-      background: linear-gradient(135deg, rgba(240, 180, 41, 0.2) 0%, rgba(255, 207, 71, 0.2) 100%);
-      border-color: var(--isu-gold);
-      transform: translateY(-2px);
-    }
-    
-    /* Profile photo placeholder */
-    .profile-photo-placeholder {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--isu-blue) 0%, var(--isu-accent) 100%);
-      border: 4px solid transparent;
-      background-clip: padding-box;
-      position: relative;
-      margin: 0 auto 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      color: var(--isu-gold);
-      box-shadow: 0 10px 40px rgba(11, 61, 145, 0.3);
-    }
-    
-    .profile-photo-placeholder::before {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--isu-gold), #ffcf47, var(--isu-blue));
-      z-index: -1;
-      animation: rotate 4s linear infinite;
-    }
-    
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    /* Glass card for About section */
-    .about-glass-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-2xl);
-      padding: var(--space-lg);
-      box-shadow: var(--shadow-xl);
-    }
-    
-    [data-bs-theme="light"] .about-glass-card {
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(11, 61, 145, 0.1);
-    }
-    
     /* Education cards */
     .education-card {
       border-left: 3px solid var(--isu-gold);
       padding-left: 1.2rem;
       margin-bottom: 1.5rem;
-    }
-    
-    /* Contact Section Styling */
-    .contact-card {
-      background: linear-gradient(135deg, rgba(11, 61, 145, 0.05) 0%, rgba(30, 95, 168, 0.08) 100%);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(11, 61, 145, 0.2);
-      border-radius: var(--radius-2xl);
-      padding: var(--space-xl);
-      box-shadow: var(--shadow-xl);
-    }
-    
-    .contact-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, var(--isu-gold) 0%, #ffcf47 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      color: var(--isu-ink);
-      box-shadow: 0 8px 25px rgba(240, 180, 41, 0.4);
-      animation: float 3s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    
-    .email-box {
-      background: rgba(255, 255, 255, 0.03);
-      border: 2px solid rgba(11, 61, 145, 0.2);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    
-    .email-box:hover {
-      border-color: var(--isu-gold);
-      background: rgba(240, 180, 41, 0.05);
-    }
-    
-    .email-display {
-      text-align: center;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--isu-gold);
-      font-family: 'Courier New', monospace;
-    }
-    
-    .social-links-large {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    .social-link-lg {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1.5rem;
-      background: linear-gradient(135deg, rgba(11, 61, 145, 0.1) 0%, rgba(30, 95, 168, 0.1) 100%);
-      border: 2px solid rgba(11, 61, 145, 0.2);
-      border-radius: var(--radius-lg);
-      color: var(--isu-sky);
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      min-width: 120px;
-    }
-    
-    .social-link-lg i {
-      font-size: 2rem;
-      color: var(--isu-gold);
-    }
-    
-    .social-link-lg span {
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-    
-    .social-link-lg:hover {
-      background: linear-gradient(135deg, rgba(240, 180, 41, 0.15) 0%, rgba(255, 207, 71, 0.15) 100%);
-      border-color: var(--isu-gold);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(240, 180, 41, 0.3);
-      color: var(--isu-gold);
-    }
-    
-    [data-bs-theme="light"] .contact-card {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(11, 61, 145, 0.15);
-    }
-    
-    [data-bs-theme="light"] .email-box {
-      background: rgba(11, 61, 145, 0.03);
-    }
-    
-    [data-bs-theme="light"] .social-link-lg {
-      background: rgba(11, 61, 145, 0.05);
-      color: var(--isu-ink);
-    }
-    
-    [data-bs-theme="light"] .social-link-lg:hover {
-      color: var(--isu-blue);
     }
 
   </style>
@@ -1597,12 +1104,6 @@ Edit Checklist is at the end for easy updating.
         <p class="lead mb-2">An explorer at heart, navigating new horizons</p>
         <p class="mb-1"><span class="badge bg-warning text-dark fs-6">ISU MSS 25-26</span> <span class="ms-2"><i class="bi bi-geo-alt-fill"></i> Strasbourg, France</span></p>
         <p class="hero-subtitle">Maritime Engineer | Systems & Energy Specialist</p>
-        
-        <!-- CTA Buttons -->
-        <div class="hero-cta" style="margin-top: 2rem; position: relative; z-index: 3;">
-          <a href="#projects" class="btn btn-warning btn-lg me-3 mb-2"><i class="bi bi-briefcase"></i> View My Work</a>
-          <a href="#contact" class="btn btn-outline-light btn-lg mb-2"><i class="bi bi-envelope"></i> Get In Touch</a>
-        </div>
         
         <!-- Social Media Links -->
         <div class="social-links">
@@ -1688,56 +1189,47 @@ Edit Checklist is at the end for easy updating.
         Unofficial student page. 'International Space University' named here for study use only.
       </div>
     </section>
-      <div class="section-divider"></div>
+      <div class="hero-decoration"></div>
     <section id="about" class="fade-in-section">
       <div class="container">
-        <h2 class="mb-5"><i class="bi bi-person-vcard"></i> About</h2>
-        <div class="about-glass-card">
-          <div class="row g-4 align-items-center">
-            <div class="col-lg-4 text-center">
-              <div class="profile-photo-placeholder">
-                <i class="bi bi-person-circle"></i>
+        <h2 class="mb-4"><i class="bi bi-person-vcard"></i> About</h2>
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <p>Hello! I am Yankit Kukreja, currently a student at ISU (MSS 25-26) in Strasbourg. I love exploring new ideas and building systems that make a difference. My work focuses on systems engineering, communication, and energy.</p>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <h5>Focus</h5>
+                <ul class="focus-list">
+                  <li>Systems engineering</li>
+                  <li>Communication</li>
+                  <li>Energy</li>
+                </ul>
+              </div>
+              <div class="col-md-6 mb-3">
+                <h5>Tools</h5>
+                <ul class="tools-list">
+                  <li>RADAR systems (X band, S band)</li>
+                  <li>ECDIS</li>
+                  <li>AIS</li>
+                  <li>GPS</li>
+                </ul>
               </div>
             </div>
-            <div class="col-lg-8">
-              <p class="lead">Hello! I am Yankit Kukreja, currently a student at ISU (MSS 25-26) in Strasbourg. I love exploring new ideas and building systems that make a difference. My work focuses on systems engineering, communication, and energy.</p>
-              
-              <div class="mb-4">
-                <h5 class="mb-3"><i class="bi bi-bullseye"></i> Focus Areas</h5>
-                <div>
-                  <span class="pill-badge">Systems Engineering</span>
-                  <span class="pill-badge">Communication</span>
-                  <span class="pill-badge">Energy</span>
-                </div>
-              </div>
-              
-              <div class="mb-4">
-                <h5 class="mb-3"><i class="bi bi-tools"></i> Tools & Technologies</h5>
-                <div>
-                  <span class="pill-badge">RADAR Systems (X band, S band)</span>
-                  <span class="pill-badge">ECDIS</span>
-                  <span class="pill-badge">AIS</span>
-                  <span class="pill-badge">GPS</span>
-                </div>
-              </div>
-              
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <h5><i class="bi bi-translate"></i> Languages</h5>
-                  <div>
-                    <span class="pill-badge">English</span>
-                    <span class="pill-badge">Hindi</span>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <h5><i class="bi bi-heart"></i> Interests</h5>
-                  <div>
-                    <span class="pill-badge">MMA</span>
-                    <span class="pill-badge">Cycling</span>
-                    <span class="pill-badge">Hiking</span>
-                  </div>
-                </div>
-              </div>
+          </div>
+          <div class="col-lg-4">
+            <!-- No profile image -->
+            <div class="mb-3"><span class="fw-bold">Languages:</span>
+              <ul class="lang-list">
+                <li>English</li>
+                <li>Hindi</li>
+              </ul>
+            </div>
+            <div class="mb-3"><span class="fw-bold">Interests:</span>
+              <ul class="interests-list">
+                <li>MMA</li>
+                <li>Cycling</li>
+                <li>Hiking</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -1829,60 +1321,60 @@ Edit Checklist is at the end for easy updating.
         <!-- Software & Tools Section -->
         <div class="mt-5">
           <h3 class="mb-4"><i class="bi bi-laptop"></i> Software & Tools</h3>
-          <div class="row g-4">
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="tool-card">
-                <i class="bi bi-code-square"></i>
-                <h6>Python</h6>
+          <div class="row g-3">
+            <div class="col-md-3 col-sm-6">
+              <div class="text-center p-3 border rounded">
+                <i class="bi bi-code-square fs-3 text-warning"></i>
+                <div class="mt-2"><strong>Python</strong></div>
                 <small>NumPy, Pandas, Matplotlib</small>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="tool-card">
-                <i class="bi bi-filetype-js"></i>
-                <h6>JavaScript</h6>
+            <div class="col-md-3 col-sm-6">
+              <div class="text-center p-3 border rounded">
+                <i class="bi bi-filetype-js fs-3 text-warning"></i>
+                <div class="mt-2"><strong>JavaScript</strong></div>
                 <small>React, Node.js, D3.js</small>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="tool-card">
-                <i class="bi bi-box"></i>
-                <h6>CAD Tools</h6>
+            <div class="col-md-3 col-sm-6">
+              <div class="text-center p-3 border rounded">
+                <i class="bi bi-box fs-3 text-warning"></i>
+                <div class="mt-2"><strong>CAD Tools</strong></div>
                 <small>SolidWorks, AutoCAD</small>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="tool-card">
-                <i class="bi bi-broadcast"></i>
-                <h6>MATLAB</h6>
+            <div class="col-md-3 col-sm-6">
+              <div class="text-center p-3 border rounded">
+                <i class="bi bi-broadcast fs-3 text-warning"></i>
+                <div class="mt-2"><strong>MATLAB</strong></div>
                 <small>Simulink, Signal Processing</small>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="tool-card">
-                <i class="bi bi-gear"></i>
-                <h6>ECDIS</h6>
+            <div class="col-md-3 col-sm-6">
+              <div class="text-center p-3 border rounded">
+                <i class="bi bi-gear fs-3 text-warning"></i>
+                <div class="mt-2"><strong>ECDIS</strong></div>
                 <small>Electronic Chart Systems</small>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="tool-card">
-                <i class="bi bi-radar"></i>
-                <h6>RADAR Systems</h6>
+            <div class="col-md-3 col-sm-6">
+              <div class="text-center p-3 border rounded">
+                <i class="bi bi-radar fs-3 text-warning"></i>
+                <div class="mt-2"><strong>RADAR Systems</strong></div>
                 <small>X-band, S-band</small>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="tool-card">
-                <i class="bi bi-git"></i>
-                <h6>Git/GitHub</h6>
+            <div class="col-md-3 col-sm-6">
+              <div class="text-center p-3 border rounded">
+                <i class="bi bi-git fs-3 text-warning"></i>
+                <div class="mt-2"><strong>Git/GitHub</strong></div>
                 <small>Version Control</small>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="tool-card">
-                <i class="bi bi-terminal"></i>
-                <h6>Linux</h6>
+            <div class="col-md-3 col-sm-6">
+              <div class="text-center p-3 border rounded">
+                <i class="bi bi-terminal fs-3 text-warning"></i>
+                <div class="mt-2"><strong>Linux</strong></div>
                 <small>CLI, Shell Scripting</small>
               </div>
             </div>
@@ -1891,8 +1383,6 @@ Edit Checklist is at the end for easy updating.
       </div>
     </section>
 
-    <div class="section-divider"></div>
-    
     <section id="projects" class="fade-in-section">
       <div class="container">
         <h2 class="mb-4"><i class="bi bi-kanban-fill"></i> Projects</h2>
@@ -1903,8 +1393,6 @@ Edit Checklist is at the end for easy updating.
       </div>
     </section>
 
-    <div class="section-divider"></div>
-    
     <section id="experience" class="fade-in-section">
       <div class="container">
         <h2 class="mb-4"><i class="bi bi-briefcase-fill"></i> Experience</h2>
@@ -2003,62 +1491,22 @@ Edit Checklist is at the end for easy updating.
       </div>
     </section>
 
-    <div class="section-divider"></div>
-    
     <section id="contact" class="fade-in-section">
       <div class="container">
-        <h2 class="mb-5 text-center"><i class="bi bi-envelope"></i> Get In Touch</h2>
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="contact-card">
-              <div class="text-center mb-4">
-                <div class="contact-icon mb-3">
-                  <i class="bi bi-envelope-fill"></i>
-                </div>
-                <h4 class="mb-3">Let's Connect</h4>
-                <p class="lead">Feel free to reach out for collaborations, opportunities, or just to say hello!</p>
-              </div>
-              
-              <div class="email-box mb-4">
-                <div class="fw-bold mb-2 text-center">Email:</div>
-                <div class="email-display">
-                  <span id="email" class="user-select-all">yankeekukreja3@gmail.com</span>
-                </div>
-              </div>
-              
-              <div class="d-flex gap-3 justify-content-center flex-wrap mb-4">
-                <a id="mailLink" class="btn btn-warning btn-lg btn-icon" href="mailto:yankeekukreja3@gmail.com">
-                  <i class="bi bi-envelope-fill"></i> Send Email
-                </a>
-                <button id="copyEmailBtn" class="btn btn-outline-primary btn-lg btn-icon" type="button" aria-label="Copy email">
-                  <i class="bi bi-clipboard"></i> Copy Email
-                </button>
-              </div>
-              
-              <div id="copyFeedback" class="alert alert-success text-center" style="display:none;" role="status">
-                <i class="bi bi-check-circle-fill"></i> Email copied to clipboard!
-              </div>
-              
-              <div class="social-connect text-center mt-5">
-                <h5 class="mb-3">Connect on Social Media</h5>
-                <div class="social-links-large">
-                  <a href="https://github.com/why-tf-knot" target="_blank" rel="noopener noreferrer" class="social-link-lg" title="GitHub">
-                    <i class="bi bi-github"></i>
-                    <span>GitHub</span>
-                  </a>
-                  <a href="https://linkedin.com/in/yankit-kukreja" target="_blank" rel="noopener noreferrer" class="social-link-lg" title="LinkedIn">
-                    <i class="bi bi-linkedin"></i>
-                    <span>LinkedIn</span>
-                  </a>
-                  <a href="https://twitter.com/yankitkukreja" target="_blank" rel="noopener noreferrer" class="social-link-lg" title="Twitter/X">
-                    <i class="bi bi-twitter-x"></i>
-                    <span>Twitter/X</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+        <h2 class="mb-4"><i class="bi bi-envelope"></i> Contact</h2>
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Email:</div>
+          <span id="email" class="user-select-all">yankeekukreja3@gmail.com</span>
         </div>
+        <div class="d-flex gap-2 flex-wrap mb-3">
+          <a id="mailLink" class="btn btn-primary btn-icon" href="mailto:yankeekukreja3@gmail.com"><i class="bi bi-envelope"></i> Email</a>
+          <button id="copyEmailBtn" class="btn btn-primary btn-icon" type="button" aria-label="Copy email"><i class="bi bi-clipboard"></i> Copy email</button>
+        </div>
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Links:</div>
+          <a href="https://why-tf-knot.github.io/" target="_blank" rel="noopener" class="btn btn-link btn-icon"><i class="bi bi-github"></i> GitHub Page</a>
+        </div>
+        <div id="copyFeedback" class="form-text text-success" style="display:none;">Email copied!</div>
       </div>
     </section>
 
@@ -2257,27 +1705,28 @@ Edit Checklist is at the end for easy updating.
 
       var container = document.getElementById('projectsContainer');
       
-      projects.forEach(function(project, index) {
+      projects.forEach(function(project) {
         // Create column
         var col = document.createElement('div');
-        col.className = 'col-md-6 col-lg-4 mb-4';
+        col.className = 'col-md-4';
         
         // Create card
         var card = document.createElement('div');
-        card.className = 'project-card';
-        if (index === 0) card.className += ' project-featured'; // Mark first as featured
+        card.className = 'card h-100 shadow-sm';
         
         // Create card body
         var cardBody = document.createElement('div');
-        cardBody.className = 'project-card-body d-flex flex-column';
+        cardBody.className = 'card-body d-flex flex-column';
         
         // Title
         var title = document.createElement('h5');
+        title.className = 'card-title';
         title.textContent = project.title;
         cardBody.appendChild(title);
         
         // Description
         var desc = document.createElement('p');
+        desc.className = 'card-text';
         desc.textContent = project.description;
         cardBody.appendChild(desc);
         
@@ -2290,27 +1739,15 @@ Edit Checklist is at the end for easy updating.
         });
         cardBody.appendChild(ul);
         
-        // Technology badges
-        var techBadges = document.createElement('div');
-        techBadges.className = 'mb-3';
-        var tools = project.details[0].replace('Tool: ', '').split(', ');
-        tools.forEach(function(tool) {
-          var badge = document.createElement('span');
-          badge.className = 'project-tech-badge';
-          badge.textContent = tool;
-          techBadges.appendChild(badge);
-        });
-        cardBody.appendChild(techBadges);
-        
         // Buttons/badges container
         var btnContainer = document.createElement('div');
-        btnContainer.className = 'mt-auto d-flex gap-2 justify-content-center';
+        btnContainer.className = 'mt-auto d-flex gap-2';
         
         // Demo button or badge
         if (project.demoUrl) {
           var demoBtn = document.createElement('a');
           demoBtn.href = project.demoUrl;
-          demoBtn.className = 'btn btn-sm btn-warning';
+          demoBtn.className = 'btn btn-sm btn-primary';
           demoBtn.target = '_blank';
           demoBtn.rel = 'noopener noreferrer';
           demoBtn.innerHTML = '<i class="bi bi-play-circle"></i> Demo';
@@ -2326,7 +1763,7 @@ Edit Checklist is at the end for easy updating.
         if (project.codeUrl) {
           var codeBtn = document.createElement('a');
           codeBtn.href = project.codeUrl;
-          codeBtn.className = 'btn btn-sm btn-outline-primary';
+          codeBtn.className = 'btn btn-sm btn-outline-secondary';
           codeBtn.target = '_blank';
           codeBtn.rel = 'noopener noreferrer';
           codeBtn.innerHTML = '<i class="bi bi-github"></i> Code';
@@ -2389,51 +1826,6 @@ Edit Checklist is at the end for easy updating.
       fadeElements.forEach(function(element) {
         appearOnScroll.observe(element);
       });
-    })();
-    
-    // --- Timeline Entry Animations ---
-    (function() {
-      var timelineEntries = document.querySelectorAll('.timeline-entry');
-      
-      var timelineOptions = {
-        threshold: 0.2,
-        rootMargin: "0px 0px -80px 0px"
-      };
-      
-      var timelineObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry, index) {
-          if (entry.isIntersecting) {
-            setTimeout(function() {
-              entry.target.classList.add('is-visible');
-            }, index * 150); // Stagger animation
-            timelineObserver.unobserve(entry.target);
-          }
-        });
-      }, timelineOptions);
-      
-      timelineEntries.forEach(function(entry) {
-        timelineObserver.observe(entry);
-      });
-    })();
-    
-    // --- Hero Parallax Effect ---
-    (function() {
-      var hero = document.querySelector('.hero');
-      var heroShip = document.querySelector('.hero-ship');
-      
-      if (!hero || !heroShip) return;
-      
-      window.addEventListener('scroll', function() {
-        var scrolled = window.pageYOffset;
-        var heroHeight = hero.offsetHeight;
-        
-        // Only apply parallax while hero is visible
-        if (scrolled < heroHeight) {
-          var parallaxSpeed = 0.5;
-          hero.style.transform = 'translateY(' + (scrolled * parallaxSpeed) + 'px)';
-          heroShip.style.transform = 'translateX(-50%) translateY(' + (scrolled * 0.3) + 'px) scale(1.5)';
-        }
-      }, {passive: true});
     })();
 
     // --- Animate Skill Bars ---
