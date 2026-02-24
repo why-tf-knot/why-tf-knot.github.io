@@ -2036,7 +2036,7 @@ Edit Checklist is at the end for easy updating.
                 </button>
               </div>
               
-              <div id="copyFeedback" class="alert alert-success text-center" style="display:none;" role="status">
+              <div id="copyFeedback" class="alert alert-success text-center" style="display:none;" role="status" aria-live="polite">
                 <i class="bi bi-check-circle-fill"></i> Email copied to clipboard!
               </div>
               
@@ -2430,7 +2430,9 @@ Edit Checklist is at the end for easy updating.
       
       if (!hero || !heroShip) return;
       
-      window.addEventListener('scroll', function() {
+      var ticking = false;
+      
+      function updateParallax() {
         var scrolled = window.pageYOffset;
         var heroHeight = hero.offsetHeight;
         
@@ -2439,6 +2441,15 @@ Edit Checklist is at the end for easy updating.
           var parallaxSpeed = 0.5;
           hero.style.transform = 'translateY(' + (scrolled * parallaxSpeed) + 'px)';
           heroShip.style.transform = 'translateX(-50%) translateY(' + (scrolled * 0.3) + 'px) scale(1.5)';
+        }
+        
+        ticking = false;
+      }
+      
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateParallax);
+          ticking = true;
         }
       }, {passive: true});
     })();
