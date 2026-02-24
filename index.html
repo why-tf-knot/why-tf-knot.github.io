@@ -2438,9 +2438,10 @@ Edit Checklist is at the end for easy updating.
         
         // Only apply parallax while hero is visible
         if (scrolled < heroHeight) {
-          var parallaxSpeed = 0.5;
+          var parallaxSpeed = 0.5; // Background scroll speed
+          var shipParallaxSpeed = 0.3; // Ship moves slower for depth effect
           hero.style.transform = 'translateY(' + (scrolled * parallaxSpeed) + 'px)';
-          heroShip.style.transform = 'translateX(-50%) translateY(' + (scrolled * 0.3) + 'px) scale(1.5)';
+          heroShip.style.transform = 'translateX(-50%) translateY(' + (scrolled * shipParallaxSpeed) + 'px) scale(1.5)';
         }
         
         ticking = false;
