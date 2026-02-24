@@ -840,6 +840,179 @@ Edit Checklist is at the end for easy updating.
     [data-bs-theme="dark"] .timeline-entry ul li strong {
       color: var(--isu-gold);
     }
+    
+    /* Ship Showcase Cards */
+    .ship-showcase-card {
+      background: linear-gradient(135deg, rgba(11, 61, 145, 0.08) 0%, rgba(30, 95, 168, 0.12) 100%);
+      border-radius: var(--radius-xl);
+      padding: var(--space-lg);
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 8px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ship-showcase-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(240, 180, 41, 0.05) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .ship-showcase-card:hover::before {
+      opacity: 1;
+    }
+    
+    .ship-showcase-card.bulk-carrier {
+      border-color: #8B4513;
+    }
+    
+    .ship-showcase-card.container-vessel {
+      border-color: #10b981;
+    }
+    
+    .ship-showcase-card.log-carrier {
+      border-color: #a855f7;
+    }
+    
+    .ship-showcase-card.general-cargo {
+      border-color: #3b82f6;
+    }
+    
+    .ship-showcase-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(11, 61, 145, 0.4);
+    }
+    
+    .ship-icon {
+      font-size: 100px;
+      color: var(--isu-blue);
+      margin-bottom: var(--space-md);
+      transition: transform 1s ease, color 0.3s ease;
+    }
+    
+    .ship-showcase-card:hover .ship-icon {
+      transform: rotate(360deg);
+      color: var(--isu-gold);
+    }
+    
+    .ship-showcase-card h3 {
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--isu-gold);
+      margin-bottom: var(--space-sm);
+    }
+    
+    .ship-type {
+      font-size: var(--text-lg);
+      color: var(--isu-blue);
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+    }
+    
+    [data-bs-theme="dark"] .ship-type {
+      color: var(--isu-gold);
+    }
+    
+    .ship-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      justify-content: center;
+      margin: var(--space-md) 0;
+    }
+    
+    .ship-stat {
+      background: rgba(11, 61, 145, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: var(--text-sm);
+      border: 1px solid rgba(11, 61, 145, 0.2);
+    }
+    
+    .ship-details {
+      display: none;
+      margin-top: var(--space-md);
+      padding: var(--space-md);
+      background: rgba(11, 61, 145, 0.05);
+      border-radius: var(--radius-lg);
+      text-align: left;
+      animation: slideDown 0.4s ease-out;
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .ship-detail-btn {
+      background: linear-gradient(135deg, var(--isu-blue) 0%, #1e5fa8 100%);
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: var(--space-sm);
+    }
+    
+    .ship-detail-btn:hover {
+      background: linear-gradient(135deg, var(--isu-gold) 0%, #f0c54a 100%);
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(240, 180, 41, 0.4);
+    }
+    
+    .ship-detail-btn.active {
+      background: linear-gradient(135deg, var(--isu-gold) 0%, #f0c54a 100%);
+    }
+    
+    .first-ship-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--isu-gold);
+      color: var(--isu-ink);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+    
+    @media (max-width: 768px) {
+      .ship-showcase-card {
+        min-height: 350px;
+      }
+      
+      .ship-icon {
+        font-size: 80px;
+      }
+      
+      .ship-showcase-card h3 {
+        font-size: var(--text-xl);
+      }
+    }
+    
     .focus-list, .tools-list, .interests-list, .lang-list {
       padding-left: 1.2em;
       margin: 0;
@@ -1577,6 +1750,7 @@ Edit Checklist is at the end for easy updating.
             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
             <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#fleet-experience">Fleet</a></li>
             <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
             <li class="nav-item"><a class="nav-link" href="#cv">CV</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -1906,6 +2080,183 @@ Edit Checklist is at the end for easy updating.
 
     <div class="section-divider"></div>
     
+    <!-- Fleet Experience Section -->
+    <section id="fleet-experience" class="fade-in-section">
+      <div class="container">
+        <h2 class="mb-5 text-center"><i class="bi bi-water"></i> Fleet Experience</h2>
+        <p class="text-center lead mb-5">7 vessels sailed across 9 years (2015-2024) spanning bulk carriers, containers, and specialized ships</p>
+        
+        <div class="row g-4">
+          <!-- Federal Spey - First Ship -->
+          <div class="col-md-6 col-lg-4">
+            <div class="ship-showcase-card bulk-carrier">
+              <div class="first-ship-badge">
+                <i class="bi bi-star-fill"></i> First Ship
+              </div>
+              <div class="ship-icon">
+                <i class="bi bi-ship"></i>
+              </div>
+              <h3>MV Federal Spey</h3>
+              <div class="ship-type">Bulk Carrier (Handymax)</div>
+              <div class="ship-stats">
+                <span class="ship-stat"><i class="bi bi-calendar"></i> 2015</span>
+                <span class="ship-stat"><i class="bi bi-boxes"></i> 52,000 DWT</span>
+                <span class="ship-stat"><i class="bi bi-currency-dollar"></i> $1.8M/voyage</span>
+              </div>
+              <p class="mb-3">Great Lakes-Atlantic, Canada-Europe grain trades. First sea assignment learning navigation fundamentals.</p>
+              <button class="ship-detail-btn" onclick="toggleShipDetails('spey-details')">See Details</button>
+              <div id="spey-details" class="ship-details">
+                <p><strong>Routes:</strong> Great Lakes-Atlantic, Canada-Europe grain trades</p>
+                <p><strong>Cargo:</strong> Grain (wheat, barley), Iron Ore, Coal</p>
+                <p><strong>Learning:</strong> Basic navigation principles, chart work, watchkeeping procedures, dry bulk cargo operations, hold cleaning, ship stability fundamentals, bridge equipment operation</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Saga Enterprise -->
+          <div class="col-md-6 col-lg-4">
+            <div class="ship-showcase-card general-cargo">
+              <div class="ship-icon">
+                <i class="bi bi-box-seam"></i>
+              </div>
+              <h3>Saga Enterprise</h3>
+              <div class="ship-type">General Cargo Vessel</div>
+              <div class="ship-stats">
+                <span class="ship-stat"><i class="bi bi-calendar"></i> 2016</span>
+                <span class="ship-stat"><i class="bi bi-boxes"></i> 8,500 DWT</span>
+                <span class="ship-stat"><i class="bi bi-currency-dollar"></i> $3.2M/voyage</span>
+              </div>
+              <p class="mb-3">North Sea-Baltic, UK-Continental Europe coastal tramping. General cargo and ship's gear operations.</p>
+              <button class="ship-detail-btn" onclick="toggleShipDetails('saga-details')">See Details</button>
+              <div id="saga-details" class="ship-details">
+                <p><strong>Routes:</strong> North Sea-Baltic, UK-Continental Europe, coastal tramping</p>
+                <p><strong>Cargo:</strong> General Cargo (steel, machinery, project cargo)</p>
+                <p><strong>Learning:</strong> Navigation in confined waters, general cargo handling and securing, ship's gear operations (derricks/cranes), port communications, diverse cargo documentation</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- MV SYMI I -->
+          <div class="col-md-6 col-lg-4">
+            <div class="ship-showcase-card container-vessel">
+              <div class="ship-icon">
+                <i class="bi bi-grid-3x3-gap"></i>
+              </div>
+              <h3>MV SYMI I</h3>
+              <div class="ship-type">Container Vessel</div>
+              <div class="ship-stats">
+                <span class="ship-stat"><i class="bi bi-calendar"></i> 2017</span>
+                <span class="ship-stat"><i class="bi bi-boxes"></i> 1,400 TEU</span>
+                <span class="ship-stat"><i class="bi bi-snow"></i> 1,400 Reefer Plugs</span>
+                <span class="ship-stat"><i class="bi bi-currency-dollar"></i> $5.8M/voyage</span>
+              </div>
+              <p class="mb-3">Mediterranean-Middle East container feeder service with extensive reefer capacity.</p>
+              <button class="ship-detail-btn" onclick="toggleShipDetails('symi-details')">See Details</button>
+              <div id="symi-details" class="ship-details">
+                <p><strong>Routes:</strong> Mediterranean-Middle East, intra-European feeder services, Black Sea trades</p>
+                <p><strong>Cargo:</strong> Refrigerated containers (perishables, pharmaceuticals), dry containers</p>
+                <p><strong>Learning:</strong> RADAR systems for dense traffic, reefer container monitoring and management, container stowage planning, port rotation scheduling, time-critical cargo operations, cold chain logistics</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mountpark -->
+          <div class="col-md-6 col-lg-4">
+            <div class="ship-showcase-card log-carrier">
+              <div class="ship-icon">
+                <i class="bi bi-tree"></i>
+              </div>
+              <h3>Mountpark</h3>
+              <div class="ship-type">Log Carrier</div>
+              <div class="ship-stats">
+                <span class="ship-stat"><i class="bi bi-calendar"></i> 2020</span>
+                <span class="ship-stat"><i class="bi bi-boxes"></i> 18,000 DWT</span>
+                <span class="ship-stat"><i class="bi bi-currency-dollar"></i> $2.1M/voyage</span>
+              </div>
+              <p class="mb-3">Pacific Northwest-Asia timber routes. Specialized log cargo handling and deck operations.</p>
+              <button class="ship-detail-btn" onclick="toggleShipDetails('mountpark-details')">See Details</button>
+              <div id="mountpark-details" class="ship-details">
+                <p><strong>Routes:</strong> Pacific Northwest-Asia, New Zealand-Japan timber routes</p>
+                <p><strong>Cargo:</strong> Timber logs (pine, fir, radiata)</p>
+                <p><strong>Learning:</strong> ECDIS coastal navigation, timber log lashing and securing, deck cargo stability, heavy weather operations, forest products handling</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Federal Tweed -->
+          <div class="col-md-6 col-lg-4">
+            <div class="ship-showcase-card bulk-carrier">
+              <div class="ship-icon">
+                <i class="bi bi-ship"></i>
+              </div>
+              <h3>Federal Tweed</h3>
+              <div class="ship-type">Bulk Carrier (Handymax)</div>
+              <div class="ship-stats">
+                <span class="ship-stat"><i class="bi bi-calendar"></i> 2021</span>
+                <span class="ship-stat"><i class="bi bi-boxes"></i> 52,000 DWT</span>
+                <span class="ship-stat"><i class="bi bi-currency-dollar"></i> $4.2M/voyage</span>
+              </div>
+              <p class="mb-3">Atlantic crossings, Mediterranean-Black Sea. Ice navigation and multi-port operations.</p>
+              <button class="ship-detail-btn" onclick="toggleShipDetails('tweed-details')">See Details</button>
+              <div id="tweed-details" class="ship-details">
+                <p><strong>Routes:</strong> Atlantic crossings, Mediterranean-Black Sea, St. Lawrence Seaway</p>
+                <p><strong>Cargo:</strong> Grain, Iron Ore, Coal</p>
+                <p><strong>Learning:</strong> AIS tracking coordination, passage planning for ice navigation, multi-port dry bulk operations, ECDIS route optimization, emergency response procedures</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bulk Mexico -->
+          <div class="col-md-6 col-lg-4">
+            <div class="ship-showcase-card bulk-carrier">
+              <div class="ship-icon">
+                <i class="bi bi-ship"></i>
+              </div>
+              <h3>Bulk Mexico</h3>
+              <div class="ship-type">Bulk Carrier (Handysize)</div>
+              <div class="ship-stats">
+                <span class="ship-stat"><i class="bi bi-calendar"></i> 2023</span>
+                <span class="ship-stat"><i class="bi bi-boxes"></i> 35,000 DWT</span>
+                <span class="ship-stat"><i class="bi bi-currency-dollar"></i> $3.5M/voyage</span>
+              </div>
+              <p class="mb-3">South America-Asia trades. Integrated bridge systems and diverse cargo routes.</p>
+              <button class="ship-detail-btn" onclick="toggleShipDetails('mexico-details')">See Details</button>
+              <div id="mexico-details" class="ship-details">
+                <p><strong>Routes:</strong> South America-Asia, Mexico-Europe, coastal trades</p>
+                <p><strong>Cargo:</strong> Grain, Iron Ore, Coal, Steel Products</p>
+                <p><strong>Learning:</strong> Integrated bridge systems management, ballast operations, cargo securing techniques, multi-port logistics, crew coordination across diverse routes</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Federal Katsura -->
+          <div class="col-md-6 col-lg-4">
+            <div class="ship-showcase-card bulk-carrier">
+              <div class="ship-icon">
+                <i class="bi bi-ship"></i>
+              </div>
+              <h3>Federal Katsura</h3>
+              <div class="ship-type">Bulk Carrier (Handymax)</div>
+              <div class="ship-stats">
+                <span class="ship-stat"><i class="bi bi-calendar"></i> 2024</span>
+                <span class="ship-stat"><i class="bi bi-boxes"></i> 52,000 DWT</span>
+                <span class="ship-stat"><i class="bi bi-currency-dollar"></i> $2.8M/voyage</span>
+              </div>
+              <p class="mb-3">Trans-Pacific grain, ore & coal operations. Latest assignment with full bridge command.</p>
+              <button class="ship-detail-btn" onclick="toggleShipDetails('katsura-details')">See Details</button>
+              <div id="katsura-details" class="ship-details">
+                <p><strong>Routes:</strong> Trans-Pacific (Japan-West Coast USA), Great Lakes-Europe</p>
+                <p><strong>Cargo:</strong> Grain (wheat, corn), Iron Ore, Coal</p>
+                <p><strong>Learning:</strong> Led full bridge operations, advanced weather routing, cargo loading supervision, trim and stability calculations, port state control inspections</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+    
     <section id="experience" class="fade-in-section">
       <div class="container">
         <h2 class="mb-4"><i class="bi bi-briefcase-fill"></i> Experience</h2>
@@ -2200,59 +2551,76 @@ Edit Checklist is at the end for easy updating.
     (function() {
       var projects = [
         {
-          title: "Satellite Link Optimizer",
-          description: "Designed a tool to optimize satellite communication links for greater reliability.",
+          title: "Atmos X CubeSat",
+          description: "Designed and built a CubeSat satellite for atmospheric research and monitoring.",
           details: [
-            "Tool: Python, custom datasets",
-            "Method: Signal simulation & link budget analysis",
-            "Outcome: Reduced signal loss and improved uptime"
+            "Role: Satellite Systems Engineer",
+            "Technologies: Python, Systems Engineering, Testing Protocols, Embedded Systems",
+            "Outcome: Successfully built operational CubeSat for atmospheric data collection"
           ],
-          demoUrl: "", // Add URL here to show demo button
-          codeUrl: ""  // Add URL here to show code button
-        },
-        {
-          title: "Green Power Cube",
-          description: "Created a compact energy unit for powering field instruments in remote locations.",
-          details: [
-            "Tool: SolidWorks, off-grid sensors",
-            "Method: Solar + battery integration",
-            "Outcome: Reliable field energy for >72h"
-          ],
+          technologies: ["Space", "Satellite", "Engineering", "Atmospheric Science"],
           demoUrl: "",
           codeUrl: ""
         },
         {
-          title: "AIS Data Visualizer",
-          description: "Built a web app to visualize vessel tracking data using AIS signals.",
+          title: "Project Umbrella",
+          description: "Systems integration and testing for Project Umbrella with the Science and Engineering team.",
           details: [
-            "Tool: JavaScript, AIS data",
-            "Method: Real-time map rendering",
-            "Outcome: Clear, live ship traffic displays"
+            "Team: Science and Engineering Team",
+            "Technologies: Systems Integration, Testing, CAD, Project Management",
+            "Outcome: Comprehensive system validation and successful integration delivery"
           ],
+          technologies: ["Systems Engineering", "Integration", "Testing"],
           demoUrl: "",
           codeUrl: ""
         },
         {
-          title: "Maritime Navigation System",
-          description: "Collaborative project developing advanced navigation solutions for maritime applications. Contributed by Yankit Kukreja.",
+          title: "GIS Workshops",
+          description: "Geographic Information Systems workshops using Google Earth Engine and Copernicus satellite platforms.",
           details: [
-            "Tool: Python, JavaScript, GPS integration",
-            "Method: Real-time positioning and route optimization",
-            "Outcome: Enhanced navigation accuracy and safety"
+            "Platforms: Google Earth Engine, Copernicus Sentinel",
+            "Technologies: Python, Remote Sensing, Geospatial Analysis, Earth Observation",
+            "Outcome: Advanced GIS analysis, satellite imagery processing, environmental monitoring capabilities"
           ],
-          demoUrl: "https://sounny.github.io/maritime-nav",
-          codeUrl: "https://github.com/sounny/maritime-nav"
+          technologies: ["GIS", "Remote Sensing", "Earth Observation", "Copernicus"],
+          demoUrl: "",
+          codeUrl: ""
         },
         {
-          title: "Ship Systems Monitor",
-          description: "Real-time monitoring dashboard for ship systems. Project collaboration with contributor credit.",
+          title: "Systems Engineering Cameo Workshop",
+          description: "Systems modeling and architecture using Cameo Systems Modeler for Model-Based Systems Engineering.",
           details: [
-            "Tool: Web technologies, IoT sensors",
-            "Method: Data aggregation and visualization",
-            "Outcome: Improved system monitoring and maintenance"
+            "Focus: Model-Based Systems Engineering (MBSE)",
+            "Technologies: Cameo Systems Modeler, SysML, Systems Architecture",
+            "Outcome: MBSE proficiency, system architecture modeling, requirements engineering expertise"
           ],
-          demoUrl: "https://sounny.github.io/ship-monitor",
-          codeUrl: "https://github.com/sounny/ship-monitor"
+          technologies: ["Systems Engineering", "MBSE", "SysML", "Modeling"],
+          demoUrl: "",
+          codeUrl: ""
+        },
+        {
+          title: "CAD Workshop",
+          description: "Advanced CAD training and mechanical design workshop developing key engineering design skills.",
+          details: [
+            "Focus: Key CAD skills for engineering design",
+            "Technologies: SolidWorks, AutoCAD, 3D Modeling, Technical Drawing",
+            "Outcome: Enhanced mechanical design proficiency, 3D modeling expertise, engineering drawing skills"
+          ],
+          technologies: ["CAD", "Mechanical Design", "3D Modeling", "SolidWorks"],
+          demoUrl: "",
+          codeUrl: ""
+        },
+        {
+          title: "Mars Lander Project",
+          description: "Building a lander for Mars exploration mission - currently in planning and development phase.",
+          details: [
+            "Status: In Planning & Development",
+            "Technologies: Aerospace Engineering, Systems Design, CAD, Mission Planning",
+            "Outcome: Conceptual design phase for Mars landing system development"
+          ],
+          technologies: ["Space", "Mars", "Lander", "Aerospace", "Mission Planning"],
+          demoUrl: "",
+          codeUrl: ""
         }
       ];
 
@@ -2294,13 +2662,14 @@ Edit Checklist is at the end for easy updating.
         // Technology badges
         var techBadges = document.createElement('div');
         techBadges.className = 'mb-3';
-        var tools = project.details[0].replace('Tool: ', '').split(', ');
-        tools.forEach(function(tool) {
-          var badge = document.createElement('span');
-          badge.className = 'project-tech-badge';
-          badge.textContent = tool;
-          techBadges.appendChild(badge);
-        });
+        if (project.technologies) {
+          project.technologies.forEach(function(tech) {
+            var badge = document.createElement('span');
+            badge.className = 'project-tech-badge';
+            badge.textContent = tech;
+            techBadges.appendChild(badge);
+          });
+        }
         cardBody.appendChild(techBadges);
         
         // Buttons/badges container
@@ -2481,6 +2850,22 @@ Edit Checklist is at the end for easy updating.
       
       skillsObserver.observe(skillsSection);
     })();
+
+    // Toggle ship details function
+    function toggleShipDetails(shipId) {
+      const details = document.getElementById(shipId);
+      const button = event.target;
+      
+      if (details.style.display === 'none' || !details.style.display) {
+        details.style.display = 'block';
+        button.textContent = 'Hide Details';
+        button.classList.add('active');
+      } else {
+        details.style.display = 'none';
+        button.textContent = 'See Details';
+        button.classList.remove('active');
+      }
+    }
 
   </script>
 </body>
