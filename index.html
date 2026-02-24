@@ -1688,7 +1688,8 @@ Edit Checklist is at the end for easy updating.
         Unofficial student page. 'International Space University' named here for study use only.
       </div>
     </section>
-      <div class="section-divider"></div>
+    
+    <div class="section-divider"></div>
     <section id="about" class="fade-in-section">
       <div class="container">
         <h2 class="mb-5"><i class="bi bi-person-vcard"></i> About</h2>
@@ -2400,12 +2401,18 @@ Edit Checklist is at the end for easy updating.
         rootMargin: "0px 0px -80px 0px"
       };
       
+      // Store entry order for proper staggering
+      timelineEntries.forEach(function(entry, idx) {
+        entry.setAttribute('data-entry-index', idx);
+      });
+      
       var timelineObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry, index) {
+        entries.forEach(function(entry) {
           if (entry.isIntersecting) {
+            var entryIndex = parseInt(entry.target.getAttribute('data-entry-index'), 10);
             setTimeout(function() {
               entry.target.classList.add('is-visible');
-            }, index * 150); // Stagger animation
+            }, entryIndex * 150); // Stagger animation based on original position
             timelineObserver.unobserve(entry.target);
           }
         });
