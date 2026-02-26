@@ -330,6 +330,71 @@
             border-top: 1px solid #eee;
         }
         
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Staggered animations */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+        
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in,
+            .slide-left,
+            .slide-right,
+            .scale-in {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+        
         /* Responsive */
         @media (max-width: 968px) {
             nav {
@@ -405,27 +470,27 @@
     
     <!-- About -->
     <section id="about">
-        <h2>About Me</h2>
+        <h2 class="fade-in">About Me</h2>
         <div class="about-content">
-            <div class="about-text">
+            <div class="about-text slide-left">
                 <p>I'm a maritime engineer and systems specialist with a unique blend of experience spanning naval operations, space systems engineering, and geospatial technologies.</p>
                 <p>Currently pursuing my MSS at ISU in Strasbourg, France, I bring hands-on experience from 9 years at sea across 7 vessels and multiple space engineering projects including CubeSat development.</p>
             </div>
-            <div class="about-stats">
-                <div class="stat">
-                    <span class="stat-number">7</span>
+            <div class="about-stats slide-right">
+                <div class="stat scale-in stagger-1" data-target="7">
+                    <span class="stat-number">0</span>
                     <span class="stat-label">Vessels Sailed</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">6</span>
+                <div class="stat scale-in stagger-2" data-target="6">
+                    <span class="stat-number">0</span>
                     <span class="stat-label">Major Projects</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">15+</span>
+                <div class="stat scale-in stagger-3" data-target="15">
+                    <span class="stat-number">0</span>
                     <span class="stat-label">Trade Routes</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">$24M+</span>
+                <div class="stat scale-in stagger-4" data-target="24">
+                    <span class="stat-number">0</span>
                     <span class="stat-label">Revenue Generated</span>
                 </div>
             </div>
@@ -434,9 +499,9 @@
     
     <!-- Projects -->
     <section id="work">
-        <h2>Selected Work</h2>
+        <h2 class="fade-in">Selected Work</h2>
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card fade-in stagger-1">
                 <div class="project-image">🛰️</div>
                 <div class="project-content">
                     <h3 class="project-title">Atmos X CubeSat</h3>
@@ -449,7 +514,7 @@
                 </div>
             </div>
             
-            <div class="project-card">
+            <div class="project-card fade-in stagger-2">
                 <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🚀</div>
                 <div class="project-content">
                     <h3 class="project-title">Mars Lander Project</h3>
@@ -462,7 +527,7 @@
                 </div>
             </div>
             
-            <div class="project-card">
+            <div class="project-card fade-in stagger-3">
                 <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🌍</div>
                 <div class="project-content">
                     <h3 class="project-title">GIS Workshops</h3>
@@ -475,7 +540,7 @@
                 </div>
             </div>
             
-            <div class="project-card">
+            <div class="project-card fade-in stagger-4">
                 <div class="project-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">⚙️</div>
                 <div class="project-content">
                     <h3 class="project-title">Project Umbrella</h3>
@@ -488,7 +553,7 @@
                 </div>
             </div>
             
-            <div class="project-card">
+            <div class="project-card fade-in stagger-5">
                 <div class="project-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">📐</div>
                 <div class="project-content">
                     <h3 class="project-title">Systems Engineering Cameo Workshop</h3>
@@ -501,7 +566,7 @@
                 </div>
             </div>
             
-            <div class="project-card">
+            <div class="project-card fade-in stagger-6">
                 <div class="project-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">🔧</div>
                 <div class="project-content">
                     <h3 class="project-title">CAD Workshop</h3>
@@ -518,23 +583,23 @@
     
     <!-- Experience -->
     <section id="experience">
-        <h2>Experience</h2>
+        <h2 class="fade-in">Experience</h2>
         <div class="experience-list">
-            <div class="experience-item">
+            <div class="experience-item slide-left stagger-1">
                 <div class="experience-year">2021 - 2024</div>
                 <h3 class="experience-title">Navigating Officer</h3>
                 <div class="experience-company">Maritime Operations • Various Vessels</div>
                 <p class="experience-description">Operated as Navigating Officer across 3 bulk carriers (Federal Katsura, Bulk Mexico, Federal Tweed) on global trade routes including Trans-Pacific, Atlantic, and Mediterranean routes. Managed integrated bridge systems, cargo operations, and crew supervision.</p>
             </div>
             
-            <div class="experience-item">
+            <div class="experience-item slide-left stagger-2">
                 <div class="experience-year">2015 - 2020</div>
                 <h3 class="experience-title">Trainee Navigating Officer</h3>
                 <div class="experience-company">Maritime Operations • Various Vessels</div>
                 <p class="experience-description">Trained across 4 diverse vessels including MV SYMI I (container vessel with 1400 reefer plugs), Mountpark (log carrier), Saga Enterprise (general cargo), and MV Federal Spey (bulk carrier). Gained comprehensive experience in navigation, cargo operations, and maritime systems.</p>
             </div>
             
-            <div class="experience-item">
+            <div class="experience-item slide-left stagger-3">
                 <div class="experience-year">2024 - Present</div>
                 <h3 class="experience-title">Space Studies Program</h3>
                 <div class="experience-company">International Space University • Strasbourg, France</div>
@@ -545,8 +610,8 @@
     
     <!-- Contact -->
     <section id="contact">
-        <h2>Get In Touch</h2>
-        <div class="contact-content">
+        <h2 class="fade-in">Get In Touch</h2>
+        <div class="contact-content fade-in stagger-1">
             <p>I'm always interested in hearing about new opportunities, collaborations, or just having a conversation about space and maritime systems.</p>
             <a href="mailto:yankit@example.com" class="contact-email">yankit@example.com</a>
             <div class="social-links">
@@ -577,27 +642,59 @@
             });
         });
         
-        // Simple fade-in on scroll
+        // Intersection Observer for animations
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
         };
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
+                    
+                    // If it's a stat with data-target, animate the number
+                    if (entry.target.classList.contains('stat') && entry.target.dataset.target) {
+                        animateNumber(entry.target);
+                    }
                 }
             });
         }, observerOptions);
         
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-left, .slide-right, .scale-in').forEach(el => {
+            observer.observe(el);
         });
+        
+        // Number counter animation
+        function animateNumber(element) {
+            const target = parseInt(element.dataset.target);
+            const numberElement = element.querySelector('.stat-number');
+            const duration = 2000; // 2 seconds
+            const steps = 60;
+            const increment = target / steps;
+            let current = 0;
+            let step = 0;
+            
+            const timer = setInterval(() => {
+                step++;
+                current += increment;
+                
+                if (step >= steps) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                // Format the number appropriately
+                if (element.dataset.target === '24') {
+                    numberElement.textContent = '$' + Math.floor(current) + 'M+';
+                } else if (element.dataset.target === '15') {
+                    numberElement.textContent = Math.floor(current) + '+';
+                } else {
+                    numberElement.textContent = Math.floor(current);
+                }
+            }, duration / steps);
+        }
     </script>
 </body>
 </html>
