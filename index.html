@@ -120,7 +120,14 @@
         .maritime-journey {
             position: relative;
             height: 400px;
-            background: linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #1E3A5F 100%);
+            /* Evening sky gradient - dark blue to purple to orange at horizon */
+            background: linear-gradient(to bottom, 
+                #1a1a3e 0%,      /* Deep night blue at top */
+                #2d3561 30%,     /* Dark purple-blue */
+                #4a5a8a 60%,     /* Medium blue-purple */
+                #ff6b35 85%,     /* Orange at horizon */
+                #ffa600 100%     /* Golden orange at bottom */
+            );
             overflow: hidden;
             margin: 4rem 0;
         }
@@ -338,22 +345,110 @@
         }
         
         /* Sun/Moon in sky */
+        /* Sun at horizon (setting) */
         .celestial {
             position: absolute;
-            top: 40px;
-            right: 60px;
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle, #FFD700, #FFA500);
+            bottom: 80px;  /* At horizon level */
+            left: 15%;     /* Left side of scene */
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #ff6b35, #ff8c42, #ffa600);
             border-radius: 50%;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
-            animation: rise 30s ease-in-out infinite;
+            box-shadow: 0 0 60px rgba(255, 107, 53, 0.8), 0 0 100px rgba(255, 166, 0, 0.4);
+            animation: sunset 40s ease-in-out infinite;
+            z-index: 1;
         }
         
-        @keyframes rise {
-            0%, 100% { transform: translateY(0); opacity: 0.8; }
-            50% { transform: translateY(-20px); opacity: 1; }
+        @keyframes sunset {
+            0%, 100% { 
+                transform: translateY(0) scale(1);
+                opacity: 0.9;
+                box-shadow: 0 0 60px rgba(255, 107, 53, 0.8), 0 0 100px rgba(255, 166, 0, 0.4);
+            }
+            50% { 
+                transform: translateY(-10px) scale(1.05);
+                opacity: 1;
+                box-shadow: 0 0 80px rgba(255, 107, 53, 1), 0 0 120px rgba(255, 166, 0, 0.6);
+            }
         }
+        
+        /* Moon in evening sky */
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 80px;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle at 35% 35%, #f4f4f4, #e0e0e0, #c8c8c8);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(244, 244, 244, 0.6), inset -5px -5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+        
+        /* Moon craters */
+        .moon::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 18px;
+            width: 8px;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            box-shadow: 
+                -10px 5px 0 -2px rgba(0, 0, 0, 0.08),
+                5px 12px 0 -3px rgba(0, 0, 0, 0.08),
+                -5px 18px 0 -4px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* Stars */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        .star.small {
+            width: 2px;
+            height: 2px;
+            box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+        }
+        
+        .star.medium {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.9);
+        }
+        
+        .star.large {
+            width: 4px;
+            height: 4px;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 1);
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.8); }
+        }
+        
+        /* Stagger star animations */
+        .star:nth-child(1) { animation-delay: 0s; }
+        .star:nth-child(2) { animation-delay: 0.3s; }
+        .star:nth-child(3) { animation-delay: 0.6s; }
+        .star:nth-child(4) { animation-delay: 0.9s; }
+        .star:nth-child(5) { animation-delay: 1.2s; }
+        .star:nth-child(6) { animation-delay: 1.5s; }
+        .star:nth-child(7) { animation-delay: 1.8s; }
+        .star:nth-child(8) { animation-delay: 2.1s; }
+        .star:nth-child(9) { animation-delay: 2.4s; }
+        .star:nth-child(10) { animation-delay: 2.7s; }
+        .star:nth-child(11) { animation-delay: 0.5s; }
+        .star:nth-child(12) { animation-delay: 1s; }
+        .star:nth-child(13) { animation-delay: 1.3s; }
+        .star:nth-child(14) { animation-delay: 1.7s; }
+        .star:nth-child(15) { animation-delay: 2.2s; }
         
         /* Clouds */
         .cloud {
@@ -762,8 +857,27 @@
     
     <!-- Maritime Journey Animation -->
     <div class="maritime-journey">
-        <!-- Sky -->
-        <div class="celestial"></div>
+        <!-- Sky elements -->
+        <div class="celestial"></div> <!-- Sun at horizon -->
+        <div class="moon"></div> <!-- Moon in evening sky -->
+        
+        <!-- Stars scattered across sky -->
+        <div class="star small" style="top: 25%; left: 15%;"></div>
+        <div class="star medium" style="top: 15%; left: 25%;"></div>
+        <div class="star small" style="top: 30%; left: 35%;"></div>
+        <div class="star large" style="top: 20%; left: 45%;"></div>
+        <div class="star small" style="top: 35%; left: 55%;"></div>
+        <div class="star medium" style="top: 10%; left: 65%;"></div>
+        <div class="star small" style="top: 25%; left: 75%;"></div>
+        <div class="star large" style="top: 18%; left: 85%;"></div>
+        <div class="star small" style="top: 32%; left: 90%;"></div>
+        <div class="star medium" style="top: 12%; left: 95%;"></div>
+        <div class="star small" style="top: 28%; left: 8%;"></div>
+        <div class="star small" style="top: 22%; left: 48%;"></div>
+        <div class="star medium" style="top: 38%; left: 68%;"></div>
+        <div class="star small" style="top: 14%; left: 78%;"></div>
+        <div class="star large" style="top: 40%; left: 28%;"></div>
+        
         <div class="cloud cloud-1"></div>
         <div class="cloud cloud-2"></div>
         
